@@ -3,23 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package protocol;
+package factory;
 
 import domain.Email;
 import domain.User;
 import enums.EnumProtocol;
 import enums.EnumServer;
+import protocol.ChainProtocol;
+import protocol.Smtp;
 
 /**
  *
  * @author HP
  */
-public class Smtp extends ChainProtocol {
-
+public class FactoryProtocol implements IFactoryProtocol {
+    
     @Override
-    public void sendEmail(User user, Email email, EnumProtocol protocol,
+    public void useProtocol(User user, Email email, EnumProtocol protocol,
             EnumServer server) {
-        super.sendEmail(user, email, protocol, server); //To change body of generated methods, choose Tools | Templates.SUP
+        ChainProtocol smtp = new Smtp();
+        
+        smtp.sendEmail(user, email, protocol, server);
     }
-
+    
 }

@@ -5,6 +5,13 @@
  */
 package protocol;
 
+import domain.Email;
+import domain.User;
+import enums.EnumProtocol;
+import enums.EnumServer;
+import factory.FactoryServer;
+import factory.IFactoryServer;
+
 /**
  *
  * @author HP
@@ -12,14 +19,20 @@ package protocol;
 public abstract class ChainProtocol {
 
     ChainProtocol chainProtocol;
+    IFactoryServer factoryServer;
+
+    public ChainProtocol() {
+        this.factoryServer = new FactoryServer();
+    }
 
     public void setNextProtocol(ChainProtocol chainProtocol) {
         this.chainProtocol = chainProtocol;
     }
 
-    public void sendEmail() {
+    public void sendEmail(User user, Email email, EnumProtocol protocol,
+            EnumServer server) {
         if (this.chainProtocol != null) {
-            this.chainProtocol.sendEmail();
+            this.chainProtocol.sendEmail(user, email, protocol, server);
         }
     }
 

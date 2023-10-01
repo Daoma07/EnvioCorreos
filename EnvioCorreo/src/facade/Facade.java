@@ -9,16 +9,24 @@ import domain.Email;
 import domain.User;
 import enums.EnumProtocol;
 import enums.EnumServer;
+import factory.FactoryProtocol;
+import factory.IFactoryProtocol;
 
 /**
  *
  * @author HP
  */
 public class Facade implements IFacade {
-
+    
+    IFactoryProtocol factoryProtocol;
+    
+    public Facade() {
+        this.factoryProtocol = new FactoryProtocol();
+    }
+    
     @Override
     public void sendEmial(User user, Email email, EnumProtocol protocol, EnumServer server) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        factoryProtocol.useProtocol(user, email, protocol, server);
     }
-
+    
 }
