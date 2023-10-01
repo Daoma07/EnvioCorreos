@@ -16,6 +16,7 @@ import factory.IFactoryProtocol;
  *
  * @author HP
  */
+//Facade
 public class Facade implements IFacade {
     
     IFactoryProtocol factoryProtocol;
