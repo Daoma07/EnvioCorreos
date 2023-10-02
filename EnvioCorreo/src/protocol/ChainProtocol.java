@@ -30,11 +30,9 @@ public abstract class ChainProtocol {
         this.chainProtocol = chainProtocol;
     }
 
-    public void sendEmail(User user, Email email, EnumProtocol protocol,
-            EnumServer server) {
-        if (this.chainProtocol != null) {
-            this.chainProtocol.sendEmail(user, email, protocol, server);
-        }
+    public boolean sendEmail(User user, Email email, EnumProtocol protocol,
+            EnumServer server, String port) {
+        return this.sendEmail(user, email, protocol, server, port);
     }
 
 }

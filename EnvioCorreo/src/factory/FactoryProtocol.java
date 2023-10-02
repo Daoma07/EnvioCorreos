@@ -9,6 +9,8 @@ import domain.Email;
 import domain.User;
 import enums.EnumProtocol;
 import enums.EnumServer;
+import port.IUsePort;
+import port.UsePort;
 import protocol.ChainProtocol;
 import protocol.Smtp;
 
@@ -17,13 +19,19 @@ import protocol.Smtp;
  * @author HP
  */
 public class FactoryProtocol implements IFactoryProtocol {
-    
-    @Override
-    public void useProtocol(User user, Email email, EnumProtocol protocol,
-            EnumServer server) {
-        ChainProtocol smtp = new Smtp();
-        
-        smtp.sendEmail(user, email, protocol, server);
+
+    public IUsePort usePort;
+
+    public FactoryProtocol() {
+        this.usePort = new UsePort();
     }
-    
+
+    @Override
+    public boolean useProtocol(User user, Email email, EnumProtocol protocol,
+            EnumServer server) {
+        String port = usePort.readFile(protocol, server);
+        ChainProtocol smtp = new Smtp();
+        return smtp.sendEmail(user, email, protocol, server, port);
+    }
+
 }

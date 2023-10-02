@@ -16,6 +16,6 @@ import enums.EnumServer;
  */
 public interface IFactoryProtocol {
 
-    public void useProtocol(User user, Email email, EnumProtocol protocol,
+    public boolean useProtocol(User user, Email email, EnumProtocol protocol,
             EnumServer server);
 }

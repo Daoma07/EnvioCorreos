@@ -18,16 +18,16 @@ import factory.IFactoryProtocol;
  */
 //Facade
 public class Facade implements IFacade {
-    
+
     IFactoryProtocol factoryProtocol;
-    
+
     public Facade() {
         this.factoryProtocol = new FactoryProtocol();
     }
-    
+
     @Override
-    public void sendEmial(User user, Email email, EnumProtocol protocol, EnumServer server) {
-        factoryProtocol.useProtocol(user, email, protocol, server);
+    public boolean sendEmial(User user, Email email, EnumProtocol protocol, EnumServer server) {
+       return factoryProtocol.useProtocol(user, email, protocol, server);
     }
-    
+
 }

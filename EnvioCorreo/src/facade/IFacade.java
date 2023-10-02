@@ -16,7 +16,7 @@ import enums.EnumServer;
  */
 public interface IFacade {
 
-    public void sendEmial(User user, Email email, EnumProtocol protocol,
+    public boolean sendEmial(User user, Email email, EnumProtocol protocol,
             EnumServer server);
 
 }
