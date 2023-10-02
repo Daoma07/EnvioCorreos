@@ -20,6 +20,7 @@ public abstract class ChainProtocol {
 
     ChainProtocol chainProtocol;
     IFactoryServer factoryServer;
+    String host;
 
     public ChainProtocol() {
         this.factoryServer = new FactoryServer();

@@ -13,6 +13,6 @@ import enums.EnumServer;
  */
 public interface IFactoryServer {
 
-    public void useServer(EnumServer server);
+    public String useServer(EnumServer server);
 
 }

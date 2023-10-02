@@ -5,10 +5,21 @@
  */
 package server;
 
+import enums.EnumServer;
+
 /**
  *
  * @author HP
  */
 public class ICloud extends ChainServer {
 
+    @Override
+    public String useServer(EnumServer server) {
+        if (server.equals(server.ICLOUD)) {
+            return "mail.me.com";
+        } else {
+            return super.useServer(server);
+        }
+
+    }
 }

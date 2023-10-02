@@ -5,10 +5,22 @@
  */
 package server;
 
+import enums.EnumServer;
+
 /**
  *
  * @author HP
  */
 public class Gmail extends ChainServer {
-    
+
+    @Override
+    public String useServer(EnumServer server) {
+        if (server.equals(server.GMAIL)) {
+            return "gmail.com";
+        } else {
+            return super.useServer(server);
+        }
+
+    }
+
 }

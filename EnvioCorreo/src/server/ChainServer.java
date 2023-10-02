@@ -12,17 +12,17 @@ import enums.EnumServer;
  * @author HP
  */
 public abstract class ChainServer {
-    
+
     ChainServer chainServer;
-    
+
     public void setNextServer(ChainServer chainServer) {
         this.chainServer = chainServer;
     }
-    
-    public void useServer(EnumServer server) {
-        if (this.chainServer != null) {
-            this.chainServer.useServer(server);
-        }
+
+    public String useServer(EnumServer server) {
+
+        return this.chainServer.useServer(server);
+
     }
-    
+
 }

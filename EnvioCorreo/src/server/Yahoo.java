@@ -5,10 +5,18 @@
  */
 package server;
 
+import enums.EnumServer;
+
 /**
  *
  * @author HP
  */
 public class Yahoo extends ChainServer {
 
+    public String useServer(EnumServer server) {
+        if (server.equals(server.YAHOO)) {
+            return "mail.yahoo.com";
+        }
+        return null;
+    }
 }

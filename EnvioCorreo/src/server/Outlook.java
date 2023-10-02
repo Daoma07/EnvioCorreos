@@ -5,10 +5,21 @@
  */
 package server;
 
+import enums.EnumServer;
+
 /**
  *
  * @author HP
  */
 public class Outlook extends ChainServer {
-    
+
+    @Override
+    public String useServer(EnumServer server) {
+        if (server.equals(server.OUTLOOK)) {
+            return "office365.com";
+        } else {
+            return super.useServer(server);
+        }
+
+    }
 }
